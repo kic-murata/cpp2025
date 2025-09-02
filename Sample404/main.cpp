@@ -4,7 +4,7 @@ int main() {
 	int* p = nullptr;
 	p = new int[10];
 	for (int i = 0; i < 10; i++) {
-		p[i] = i;
+		p[i] = i;	//p[i]‚Í*(p + i)‚Å‚à‰Â
 		cout << p[i] << " ";
 	}
 	cout << endl;
