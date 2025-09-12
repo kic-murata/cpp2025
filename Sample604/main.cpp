@@ -11,7 +11,7 @@ int main() {
 	// 配列要素を4つ確保して1で初期化　()内は個数と初期化値
 	vector<int> v1(4, 1);
 	// string型の動的配列v2を宣言
-	vector<string> v2;
+	vector<string> v2(3,"XYZ");
 	cout << "v1の要素数：" << v1.size() << endl;
 	cout << "v2の要素数：" << v2.size() << endl;
 	v1.push_back(1);	//v1の末尾に1を追加
