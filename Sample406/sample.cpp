@@ -9,6 +9,9 @@ void Sample::func1() {
 	s_b = 2;	//静的メンバ変数への代入
 	cout << "a=" << m_a << endl;
 	cout << "b=" << s_b << endl;
+	cout << "静的メンバ関数の呼出し" << endl;
+	Sample::func2();	//静的メンバ関数は呼出し可能
+	cout << "--------------------" << endl;
 }
 //静的メンバ関数func2
 void Sample::func2() {
@@ -17,4 +20,5 @@ void Sample::func2() {
 	s_b = 4;	//静的メンバ変数への代入
 	//cout << "a=" << m_a << endl; //(実行不可)
 	cout << "b=" << s_b << endl;
+	//func1();	//インスタンスメンバ関数は呼出し不可
 }
