@@ -7,11 +7,10 @@ Calc::Calc(int a, int b) :m_a(a), m_b(b) {}
 int Calc::add() {
 	return m_a + m_b;	//ƒƒ“ƒo•Ï”“¯m‚Ì‘«‚µZ
 }
-//ˆø”‚ ‚è‚ÌaddŠÖ”
-int Calc::add(int a, int b, int c) {
-	return a + b + c;			//ˆø”“¯m‚Ì‘«‚µZ
-}
-
+////ˆø”‚ ‚è‚ÌaddŠÖ”
+//int Calc::add(int a, int b, int c) {
+//	return a + b + c;			//ˆø”“¯m‚Ì‘«‚µZ
+//}
 ////ˆø”‚ ‚è‚ÌaddŠÖ”
 //int Calc::add(int a, int b) {
 //	return a + b;			//ˆø”“¯m‚Ì‘«‚µZ

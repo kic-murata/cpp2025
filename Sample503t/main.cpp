@@ -8,12 +8,14 @@ int main() {
 	pC2 = new Calc(1, 2);	//引数をつけてインスタンス生成
 	cout << "a=" << pC2->getA() << " b=" << pC2->getB() << endl;
 
-	cout << "3+4=" << pC1->add(3, 4) << endl;
+	cout << "3+4=" << pC1->add<int>(3, 4) << endl;
 	cout << pC2->getA() << "+" << pC2->getB() << "="
 		<< pC2->add() << endl;
-	cout << "1.1+2.3=" << pC2->add(1.1, 2.3) << endl;
-	cout << "1+2+3=" << pC1->add(1, 2, 3) << endl;
-	cout << "ABC+DEF=" << pC1->add("ABC", "DEF") << endl;
+	cout << "1.1+2.3=" << pC2->add<double>(1.1, 2.3) << endl;
+	cout << "1+2+3=" << pC1->add<int>(1, 2, 3) << endl;
+	cout << "ABC+DEF=" << pC1->add<string>("ABC", "DEF") << endl;
+	cout << "5.5+2=" << pC1->add<double, int>(5.5, 2) << endl;
+	cout << "1.5+2+3.9+7=" << pC1->add(1.5, 2, 3.9, 7) << endl;
 	delete pC1;
 	delete pC2;
 	return 0;
