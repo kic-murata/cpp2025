@@ -1,32 +1,46 @@
 #include<iostream>
-#include<string>
 #include<map>
+#include<string>	
 using namespace std;
 int main() {
-	//連想配列名: score
-	//キー(key): string型
-	//値(value): int型
+	//mapクラスの配列scoreの宣言
+	//キー：string型 　値：int型
 	map<string, int> score;
-	score["Tom"] = 100;
-	score["Bob"] = 80;
-	score["Mike"] = 76;
-	score.erase("Mike");	//キーを指定して削除
-
-	//insertする場合はmake_pair関数でキーと値のペアを作る必要がある
+	score["Tom"] = 100;	//要素に値を代入
+	score["Bob"] = 80;	//    〃
+	score["Mike"] = 76;	//    〃
+	score.erase("Mike");//Mikeのデータを消去
+	
+	//Johnと88を１つのペアにして配列に挿入　score["John"] = 88と同じ
 	score.insert(make_pair("John", 88));
+	//Johnのキーを配列内から検索して場所をイテレータで返す
+	auto itr = score.find("John");
+	//イテレータのfirstがキー、secondが値を表す
+	cout << itr->first << "の点数は" << itr->second << "点" << endl;
 
-	//emplaceの場合はキーと値だけでよい
+	//Davidと70のペアを配列に追加 score["David"] = 70と同じ
 	score.emplace("David", 70);
 
-	//配列からキー"David"の場所（イテレータ）を取得
-	auto itr = score.find("David");
-	cout << "Davidの点数は" << itr->second << "点" << endl;
-	
 	cout << "Tomの点数は" << score["Tom"] << "点" << endl;
 	cout << "Bobの点数は" << score["Bob"] << "点" << endl;
-	if (score.count("Mike")) {//Mikeのキーが存在するかのチェック
+	//Mikeというキーが配列内にいくつあるか数える
+	if (score.count("Mike")) {
 		cout << "Mikeの点数は" << score["Mike"] << "点" << endl;
 	}
-	cout << "Johnの点数は" << score["John"] << "点" << endl;
+	//配列の先頭から末尾までキーと値のペアを順番に表示
+	for (auto itr = score.begin(); itr != score.end(); itr++) {
+		cout << "Key:" << itr->first
+			<< " Value:" << itr->second << endl;
+	}
+	//範囲for文を使った表示
+	for (auto p : score) {
+		cout << "Key:" << p.first
+			<< " Value:" << p.second << endl;
+	}
+	//範囲for文でキーと値に直接分解して取り出す方法(要:/std:c++17)
+	for (const auto& [key, value] : score) {
+		cout << "Key:" << key
+			<< " Value:" << value << endl;
+	}
 	return 0;
 }
